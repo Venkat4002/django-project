@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{% static "stylesheets/style.css" %}"/>
+  </head>
+  <body>
+    <h2>
+      <img src="{% static "images/logo.jpeg" %}" width="50" height="50" alt="image not found">FUN ACADEMY
+    </h2><br>
+    <hr>
+
+    <div class="module">
+      <h1>ADMISSIONS</h1><hr>
+      <br>
+      <a href="/ad/newadm"><button type="button" name="button">Add Admission</button></a><br><br>
+      <a href="/ad/admreport"><button type="button" name="button">Admission Report</button></a>
+    </div>
+    <div class="module">
+      <h1>FINANCE</h1><hr><br>
+      <a href="/fin/feecoll"><button type="button" name="button">Fee Collection</button></a><br><br>
+      <a href="/fin/collectionreport"><button type="button" name="button">Fee Collection report</button></a><br><br>
+      <a href="/fin/duesreport"><button type="button" name="button">Fee Dues Report</button></a>
+    </div>
+    <form action="{% url 'logout' %}"  method="POST">
+      {% csrf_token %}
+      <a href="/accounts/logout"><button type="submit" name="Logout">Logout</button></a>
+
+    </form>
+
+  </body>
+</html>
