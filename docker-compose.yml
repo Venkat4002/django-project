@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Venkateswar@121
+      MYSQL_DATABASE: schoolapp
+      MYSQL_USER: schoolappuser
+      MYSQL_PASSWORD: Venkateswar@121
+    ports:
+      - "3307:3306"
+
+  djangoapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=schoolapp
+      - DB_USER=schoolappuser
+      - DB_PASSWORD=Venkateswar@121

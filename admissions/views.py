@@ -19,6 +19,7 @@ from django.contrib.auth.decorators import login_required,permission_required
 def homepage(request):
     return render(request,"index.html")
 
+
 def logoutUser(request):
     return render(request,'logout.html')
 # To add admission
